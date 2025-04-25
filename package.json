@@ -1,0 +1,24 @@
+{
+  "name": "pixelaud",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass src/main.scss dist/style.css --no-source-map --style=compressed",
+    "dev": "sass src/main.scss dist/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtakram/pixelaud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtakram/pixelaud/issues"
+  },
+  "homepage": "https://github.com/mtakram/pixelaud#readme",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.87.0"
+  }
+}
