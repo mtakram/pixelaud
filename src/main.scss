@@ -1,4 +1,6 @@
-@import 'base/variables';
+@use 'base/base';
+@use 'layout/layout';
+
 .container {
     border: 1px solid red;
 }

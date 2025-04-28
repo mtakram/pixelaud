@@ -1,0 +1,45 @@
+@use 'sass:math';
+
+$grid-columns: 12;
+$gutter: 10px;
+$container-max-size: 1200px;
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: math.div(-$gutter, 2);
+  margin-left: math.div(-$gutter, 2);
+}
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left:  auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+  max-width: $container-max-size;
+}
+
+[class^="col"] {
+  padding-left: math.div($gutter, 2);
+  padding-right: math.div($gutter, 2);
+}
+@each $breakpoint, $value in $breakpoints {
+  @media(min-width: #{$value}) {
+    @for $i from 1 through $grid-columns {
+      .col-#{$breakpoint}-#{$i} {
+        $size: math.div($i, $grid-columns);
+        flex: 0 0 math.percentage($size);
+        max-width: 0 0 math.percentage($size);
+      }
+    }
+    .container {
+      max-width: $value;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use 'sass:math';
+@use 'variables';
+// Base Font Settings
+$font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+
+// Headings Font Settings
+$headings-font-family: $font-family-base;
+$headings-font-weight: $font-weight-bold;
+$headings-line-height: 1.2;
+
+
+// Typography Reset
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    font-weight: $font-weight-normal;
+    color: red;
+    margin: 0;
+    padding: 0;
+}
+
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    margin-bottom: 0.5rem;
+    color: inherit;
+}
+
+@function round-2($number) {
+    @return math.div(math.round($number * 100), 100);
+}
+
+@for $i from 6 through 1 {
+    h#{$i} {
+        $calc-font-size: $font-size-base * 0.8 * pow(1.25, (6 - $i));
+        font-size: round-2($calc-font-size)
+    }
+}
