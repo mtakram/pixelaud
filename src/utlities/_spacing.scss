@@ -1,0 +1,12 @@
+@use '../abstracts/variables';
+
+@each $key, $val in $spacers {
+    .m-#{$key} { margin: $val !important; }
+    @each $positions, $position in $directions {
+      .m#{$positions}-#{$key} { margin-#{$position}: $val !important;} 
+    }
+    .p-#{$key} { padding: $val !important; }
+    @each $positions, $position in $directions {
+      .p#{$positions}-#{$key} { padding-#{$position}: $val !important;} 
+    }
+  }
